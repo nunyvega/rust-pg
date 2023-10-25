@@ -95,8 +95,6 @@ fn main() {
     let mut sentence = String::from("I am.");
     question(&mut sentence);
 
-    println!("{sentence}");
-
     let mut sentence = String::from("Take care, take care.");
     let immutable_reference = &mut sentence;
 
