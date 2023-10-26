@@ -101,4 +101,14 @@ fn main() {
     // Swapping the order of these statements will cause our code to not compile.
     println!("{}", immutable_reference);
     println!("{}", sentence);
+
+    trait Golf {
+        const BIRDIE: i32 = -1;
+    }
+
+    struct Caddy;
+
+    impl Golf for Caddy {}
+
+    println!("{}", Caddy::BIRDIE);
 }
