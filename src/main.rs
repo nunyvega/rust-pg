@@ -111,4 +111,35 @@ fn main() {
     impl Golf for Caddy {}
 
     println!("{}", Caddy::BIRDIE);
+
+    // Attributes are macros.
+    #[derive(Debug)]
+    struct Wow;
+
+    let wow = Wow;
+
+    // Calls ending with `!` are macros
+    // Basically before the code is compiled, the macros used are replaced by the actual code.
+    // is a macro because it formats the string on compiletime, it calls format!
+    println!("{wow:?} that is convenient!");
+
+    let number = 12;
+    let you = "us";
+    let i = "us";
+
+    assert!(you == i); // assert is also a macro!
+    assert_eq!(i, you);
+    assert_ne!(number, you.len());
+
+    let number = 10;
+
+    if number <= 5 {
+        todo!("we will handle this outcome soon.") // another macro
+    } else if number > 5 {
+        //unimplemented!("we might do something here eventually") 
+		// and another, commented because it breaks the break
+    } else {
+        unreachable!() // and another
+    }
+    // panic!("we should use panics sparingly."); // and another!
 }
