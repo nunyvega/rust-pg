@@ -136,10 +136,26 @@ fn main() {
     if number <= 5 {
         todo!("we will handle this outcome soon.") // another macro
     } else if number > 5 {
-        //unimplemented!("we might do something here eventually") 
-		// and another, commented because it breaks the break
+        //unimplemented!("we might do something here eventually")
+        // and another, commented because it breaks the break
     } else {
         unreachable!() // and another
     }
+    // todo!, unimplemented! and unreachable! all panic! when called.
     // panic!("we should use panics sparingly."); // and another!
+
+    //attributes example
+    // #[cfg] is used to tell the compiler whether or not to compile
+    // the following code based on a condition.
+    #[cfg(target_os = "linux")]
+    fn are_you_on_linux() {
+        println!("You are running linux!");
+    }
+
+    #[cfg(not(target_os = "linux"))]
+    fn are_you_on_linux() {
+        println!("You are *not* running linux!");
+    }
+
+    are_you_on_linux();
 }
