@@ -75,7 +75,7 @@ Explore Rust’s various data types and collection types such as arrays, tuples,
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your_username/rust-playground.git
+    git clone https://github.com/nunyvega/rust-pg/
     ```
 
 2. **Navigate to the cloned directory:**
