@@ -433,6 +433,83 @@ fn rust_primitives_section() {
     println!("HashMap: {:?}", hash_map);
 }
 
+fn string_section() {
+    println!("== String Section ==");
+
+    // &str and String
+    // &str is an immutable reference to a fixed-size chunk of text.
+    let s1: &str = "This is a str slice.";
+
+    // String is a mutable, growable piece of text.
+    let mut s2: String = String::from("This is a String.");
+
+    // Converting &str to String
+    let _s1_to_s2 = s1.to_string();
+    // Or you could also do
+    let _s1_to_s2_alternate = String::from(s1);
+
+    // Converting String to &str
+    let _s2_to_s1: &str = &s2;
+
+    // UTF-8 encoding - Supports a wide array of characters including emojis
+    let various_chars = "UTF8: ❤️🚀中文";
+
+    // Length might not be what you expect due to special characters
+    println!("Length of various_chars: {}", various_chars.len());
+
+    // String concatenation
+    // Using format!
+    let concatenated = format!("{} {}", s1, s2);
+    println!("Concatenated: {}", concatenated);
+
+    // Appending to a String
+    s2.push_str(" Appended text.");
+    println!("Appended: {}", s2);
+}
+
+fn tuples_section() {
+    println!("== Tuples Section ==");
+
+    // Tuple Declaration
+    let person: (&str, i32, bool) = ("Alice", 30, true);
+
+    // Accessing tuple values using dot notation
+    println!("Name: {}", person.0); // Alice
+    println!("Age: {}", person.1); // 30
+    println!("Membership: {}", person.2); // true
+
+    // Destructuring
+    let (name, age, membership) = person;
+    println!(
+        "Destructured - Name: {}, Age: {}, Membership: {}",
+        name, age, membership
+    );
+
+    // Tuple Struct
+    struct Cat(&'static str, f64, bool);
+    let my_cat = Cat("Meowzer", 2.8, true);
+
+    // Accessing values in a tuple struct
+    println!("Cat's Name: {}", my_cat.0);
+
+    // Unit Type
+    let unit: () = ();
+    println!("Unit type: {:?}", unit);
+
+    // Function returning unit type
+    fn return_unit() -> () {
+        // function body
+    }
+    return_unit();
+    println!("Function returning unit type executed");
+
+    // Unit Structs
+    struct NoValue;
+    let _no_value_instance = NoValue;
+
+    println!("Unit Struct instantiated");
+}
+
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -448,4 +525,6 @@ fn main() {
     closures_section();
     iterators_section();
     rust_primitives_section();
+    string_section();
+    tuples_section();
 }
