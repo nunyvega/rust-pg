@@ -1,4 +1,5 @@
-fn main() {
+// ============== SECTION: Basic Printing and Variables ==============
+fn basic_printing_and_variables() {
     println!("Hello, world!");
 
     let stack_1 = 32;
@@ -6,8 +7,11 @@ fn main() {
 
     // We now have two values we can work with
     println!("{}", stack_1);
-    println!("{stack_2}");
+    println!("{}", stack_2);
+}
 
+// ============== SECTION: Functions and Ownership ==============
+fn functions_and_ownership() {
     // When we have a function that return a value, the ownership of that value is passed to the caller.
     fn abc() -> String {
         "abc".to_string()
@@ -25,17 +29,19 @@ fn main() {
 
     print!("{}", juan);
 
-    let pi = 3.14159265359;
+    let pi = 3.141592;
     let funny_number = &pi;
+    println!("{}", funny_number);
+}
 
-    println!("{funny_number}");
-
+// ============== SECTION: References and Mutability ==============
+fn references_and_mutability() {
     let mut year = 3020;
     let y = &mut year;
 
     let _ = *y + 10;
 
-    println!("The year is {year}.");
+    println!("The year is {}.", year);
 
     let planet = "Earth";
     let earth = &&&&planet;
@@ -45,7 +51,8 @@ fn main() {
     let starship: Option<String> = Some("Omaha".to_string());
 
     match starship {
-        //The ref keyword is used here to take a reference of the value inside Some rather than taking ownership of the value.
+        // The ref keyword is used here to take a reference of the value inside Some
+        // rather than taking ownership of the value.
         // This way, starship retains ownership of its value.
         Some(ref name) => println!("{}", name),
         None => {}
@@ -75,10 +82,8 @@ fn main() {
 
     // This is the outcome of calling the closure
     let var = double(10);
-
     // This will re-assign the value of var
     let doubled_var = var;
-
     println!("{}", doubled_var);
 
     //Shadowing an inmutable variable and making it mutable
@@ -94,25 +99,31 @@ fn main() {
 
     let mut sentence = String::from("I am.");
     question(&mut sentence);
+}
 
-    let mut sentence = String::from("Take care, take care.");
-    let immutable_reference = &mut sentence;
+// ============== SECTION: Macros ==============
+fn macro_section() {
+    println!("Macros section");
 
-    // Swapping the order of these statements will cause our code to not compile.
-    println!("{}", immutable_reference);
-    println!("{}", sentence);
+    // Calls ending with `!` are macros
+    // Basically before the code is compiled, the macros used are replaced by the actual code.
+    // is a macro because it formats the string on compiletime, it calls format!
+    println!("Macros are a powerful feature in Rust!");
 
-    trait Golf {
-        const BIRDIE: i32 = -1;
+    let number = 10;
+    if number <= 5 {
+        todo!("we will handle this outcome soon.") // another macro
+    } else if number > 5 {
+        //unimplemented!("we might do something here eventually") // and another, commented because it breaks the build
+    } else {
+        // unreachable!() // and another
     }
+}
 
-    struct Caddy;
+// ============== SECTION: Attributes ==============
+fn attributes_section() {
+    //Attributes are also macros attributes example
 
-    impl Golf for Caddy {}
-
-    println!("{}", Caddy::BIRDIE);
-
-    // Attributes are macros.
     #[derive(Debug)]
     struct Wow;
 
@@ -123,28 +134,6 @@ fn main() {
     // is a macro because it formats the string on compiletime, it calls format!
     println!("{wow:?} that is convenient!");
 
-    let number = 12;
-    let you = "us";
-    let i = "us";
-
-    assert!(you == i); // assert is also a macro!
-    assert_eq!(i, you);
-    assert_ne!(number, you.len());
-
-    let number = 10;
-
-    if number <= 5 {
-        todo!("we will handle this outcome soon.") // another macro
-    } else if number > 5 {
-        //unimplemented!("we might do something here eventually")
-        // and another, commented because it breaks the break
-    } else {
-        unreachable!() // and another
-    }
-    // todo!, unimplemented! and unreachable! all panic! when called.
-    // panic!("we should use panics sparingly."); // and another!
-
-    //attributes example
     // #[cfg] is used to tell the compiler whether or not to compile
     // the following code based on a condition.
     #[cfg(target_os = "linux")]
@@ -158,4 +147,51 @@ fn main() {
     }
 
     are_you_on_linux();
+
+    let number = 12;
+    let you = "us";
+    let i = "us";
+
+    assert!(you == i); // assert is also a macro!
+    assert_eq!(i, you);
+    assert_ne!(number, you.len());
+}
+
+// ============== SECTION: Traits ==============
+fn traits_section() {
+    trait Golf {
+        const BIRDIE: i32 = -1;
+    }
+
+    struct Caddy;
+
+    impl Golf for Caddy {}
+
+    println!("{}", Caddy::BIRDIE);
+}
+
+// ============== SECTION: Control Flow ==============
+fn control_flow_section() {
+    let number = 10;
+    if number <= 5 {
+        todo!("we will handle this outcome soon.") // another macro
+    } else if number > 5 {
+        //unimplemented!("we might do something here eventually")
+        // and another, commented because it breaks the break
+    } else {
+        unreachable!() // and another
+    }
+    // todo!, unimplemented! and unreachable! all panic! when called.
+    // panic!("we should use panics sparingly."); // and another!
+}
+
+// ============== Main Function Calling Each Section ==============
+fn main() {
+    basic_printing_and_variables();
+    functions_and_ownership();
+    references_and_mutability();
+    macro_section();
+    traits_section();
+    control_flow_section();
+    attributes_section();
 }
