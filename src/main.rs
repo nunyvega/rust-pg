@@ -364,6 +364,75 @@ fn iterators_section() {
     println!("First even number: {:?}", first_even);
 }
 
+// ============== SECTION: Rust Primitives and Collections ==============
+fn rust_primitives_section() {
+    println!("== Rust Primitives and Collections Section ==");
+
+    // Numeric Types (Integers, Floating-Point)
+    // Integers include i8, i16, i32, i64, i128, u8, u16, u32, u64, u128
+    // Floating-Point numbers include f32 and f64
+    let int_value: i32 = 42;
+    let float_value: f64 = 42.0;
+    println!("Integer: {}, Floating-Point: {}", int_value, float_value);
+
+    // Boolean
+    // Represents a value that is either true or false
+    let is_true: bool = true;
+    println!("Boolean: {}", is_true);
+
+    // Characters
+    // Represents a Unicode character and is specified with a single quote
+    let char_value: char = 'A';
+    println!("Character: {}", char_value);
+
+    // Strings
+    // str (string slice) is immutable and &str is a reference to a string slice
+    // String is a heap-allocated string type and is mutable
+    let str_slice: &str = "hello";
+    let string_obj: String = String::from("world");
+    println!("Str slice: {}, String object: {}", str_slice, string_obj);
+
+    // Arrays and Slices
+    // Arrays have a fixed length at compile time
+    // Slices are references to a sequence of elements in an array
+    let array: [i32; 3] = [1, 2, 3];
+    let slice: &[i32] = &array[1..3];
+    println!("Array: {:?}, Slice: {:?}", array, slice);
+
+    // Tuples
+    // Ordered list of elements of potentially different types
+    let tuple: (i32, &str) = (1, "one");
+    println!("Tuple: {:?}", tuple);
+
+    // Unit Type
+    // Represents the absence of a value or information
+    fn unit_function() {}
+    println!("Unit value: {:?}", unit_function());
+
+    // References & Pointers
+    // References refer to the memory location of another variable
+    // Raw pointers are similar to references but can be null or dangling
+    let x = 10;
+    let reference: &i32 = &x;
+    let raw_pointer: *const i32 = &x;
+    unsafe {
+        println!("Reference: {}, Raw pointer: {}", reference, *raw_pointer);
+    }
+
+    // Homogeneous Collections
+    // Vectors allow us to store multiple values of the same type
+    let vector: Vec<i32> = vec![1, 2, 3];
+    println!("Vector: {:?}", vector);
+
+    // Other Collections include HashMaps, LinkedLists, BinaryHeaps, etc.
+    // HashMaps store values based on a key
+    use std::collections::HashMap;
+    let mut hash_map: HashMap<&str, i32> = HashMap::new();
+    hash_map.insert("one", 1);
+    println!("HashMap: {:?}", hash_map);
+}
+
+
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -378,4 +447,5 @@ fn main() {
     loops_section();
     closures_section();
     iterators_section();
+	rust_primitives_section();
 }
