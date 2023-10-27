@@ -19,57 +19,83 @@ This repository serves as an illustrative guide for beginners in Rust programmin
 -   [Iterators](#iterators)
 -   [Rust Primitives and Collections](#rust-primitives-and-collections)
 
-### Basic Printing and Variables -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L2)
+### Basic Printing and Variables
 
 Introduction to simple print statements and variable declarations. Demonstrates the concept of immutability and the usage of basic variables.
 
-### Functions and Ownership -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L15)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L2)
+
+### Functions and Ownership
 
 Explore the ownership rules, passing, and returning values in functions. Learn how ownership and borrowing rules apply to function parameters and return values.
 
-### References and Mutability -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L40)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L15)
+
+### References and Mutability
 
 Learn about references, borrowing, and mutability. Understand how to use mutable references and the rules around them.
 
-### Macros -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L108)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L40)
+
+### Macros
 
 Introduction to macros in Rust. Understand how macros look like function calls but operate at the syntactic level.
 
-### Attributes -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L127)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L108)
+
+### Attributes
 
 Learn about attributes in Rust. Attributes are used to add metadata to code for conditional compilation and various other purposes.
 
-### Traits -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L165)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L127)
+
+### Traits
 
 Explore traits, a way to share method signatures across multiple structs or enums. Understand how to implement traits for custom types.
 
-### Control Flow -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L179)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L165)
+
+### Control Flow
 
 Learn about different control flow constructs like if-else, match, loops, and iterators.
 
-### If Let -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L195)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L179)
+
+### If Let
 
 Understand the `if let` syntax for pattern matching. It allows for a less verbose way to handle values matching complex patterns.
 
-### Match -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L224)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L195)
+
+### Match
 
 Explore the `match` statement, a powerful control flow operator that allows for exhaustive pattern matching.
 
-### Loops -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L263)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L224)
+
+### Loops
 
 Learn about different loops available in Rust such as loop, while, and for.
 
-### Closures -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L312)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L263)
+
+### Closures
 
 Explore closures, anonymous functions that have the ability to capture values from their scope.
 
-### Iterators -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L338)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L312)
+
+### Iterators
 
 Learn about iterators, lazy value generators that can be used to work with sequences of elements in a more abstract way.
 
-### Rust Primitives and Collections -> [Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L368)
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L338)
+
+### Rust Primitives and Collections
 
 Explore Rust’s various data types and collection types such as arrays, tuples, and vectors.
+
+[🔗 Link to code](https://github.com/nunyvega/rust-pg/blob/master/src/main.rs#L368)
 
 ## How to Run
 
