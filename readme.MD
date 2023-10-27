@@ -1,4 +1,4 @@
-# Rust Playground: A Dive into Basic Rust Concepts
+# Rust Playground: A Dive into Basic Rust Concepts 🦀
 
 Welcome to the Rust Playground! This repository serves as an illustrative guide for beginners in Rust programming. Each code section explores specific Rust concepts in a simplified manner, providing a hands-on approach to understanding Rust's unique features such as ownership, borrowing, lifetimes, iterators, and more. This is aimed to work as an overview, and does not intend to do any kind of thorough study of the language.
 
