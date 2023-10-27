@@ -185,6 +185,35 @@ fn control_flow_section() {
     // panic!("we should use panics sparingly."); // and another!
 }
 
+// ============== SECTION: If Let ==============
+fn if_let_section() {
+    println!("== If Let Section ==");
+
+    // Using if let with Option
+    let some_option: Option<i32> = Some(10);
+
+    if let Some(value) = some_option {
+        println!("The value inside the option is: {}", value);
+    } else {
+        println!("The option is None");
+    }
+
+    // Using if let with custom Enum
+    enum Weather {
+        _Sunny,
+        Rainy(String),
+        _Cloudy,
+    }
+
+    let today = Weather::Rainy(String::from("Heavy"));
+
+    if let Weather::Rainy(description) = today {
+        println!("The weather today is rainy with: {}", description);
+    } else {
+        println!("It's not rainy today");
+    }
+}
+
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -194,4 +223,5 @@ fn main() {
     traits_section();
     control_flow_section();
     attributes_section();
+    if_let_section();
 }
