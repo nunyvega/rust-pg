@@ -334,6 +334,36 @@ fn closures_section() {
     println!("Subtract num closure result: {}", subtract_num(10));
 }
 
+// ============== SECTION: Iterators ==============
+fn iterators_section() {
+    println!("== Iterators Section ==");
+
+    // Using collect() to gather values into a collection
+    let collected_vec: Vec<_> = (0..5).collect();
+    println!("Collected into vector: {:?}", collected_vec);
+
+    // Using map() to modify each element in the iterator
+    let plus_one: Vec<_> = (0..5).map(|x| x + 1).collect();
+    println!("Values after map (+1): {:?}", plus_one);
+
+    // Using filter() to keep elements that satisfy a condition
+    let even_numbers: Vec<_> = (0..5).filter(|x| x % 2 == 0).collect();
+    println!("Even numbers: {:?}", even_numbers);
+
+    // Using enumerate() to get the index along with the value
+    for (index, value) in ('a'..='d').enumerate() {
+        println!("Index: {}, Value: {}", index, value);
+    }
+
+    // Using fold() as a reduce operation, to accumulate values
+    let sum: i32 = (0..5).fold(0, |acc, x| acc + x);
+    println!("Sum of numbers: {}", sum);
+
+    // Using find() to get the first element that satisfies a condition
+    let first_even = (0..5).find(|x| x % 2 == 0);
+    println!("First even number: {:?}", first_even);
+}
+
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -347,5 +377,5 @@ fn main() {
     match_section();
     loops_section();
     closures_section();
+    iterators_section();
 }
-
