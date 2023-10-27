@@ -1,5 +1,6 @@
 // ============== SECTION: Basic Printing and Variables ==============
 fn basic_printing_and_variables() {
+    println!("== Basic Printing and Variables Section ==");
     println!("Hello, world!");
 
     let stack_1 = 32;
@@ -12,6 +13,7 @@ fn basic_printing_and_variables() {
 
 // ============== SECTION: Functions and Ownership ==============
 fn functions_and_ownership() {
+    println!("== Functions and Ownership Section ==");
     // When we have a function that return a value, the ownership of that value is passed to the caller.
     fn abc() -> String {
         "abc".to_string()
@@ -36,6 +38,7 @@ fn functions_and_ownership() {
 
 // ============== SECTION: References and Mutability ==============
 fn references_and_mutability() {
+    println!("== References and Mutability Section ==");
     let mut year = 3020;
     let y = &mut year;
 
@@ -103,7 +106,7 @@ fn references_and_mutability() {
 
 // ============== SECTION: Macros ==============
 fn macro_section() {
-    println!("Macros section");
+    println!("== Macros Section ==");
 
     // Calls ending with `!` are macros
     // Basically before the code is compiled, the macros used are replaced by the actual code.
@@ -122,6 +125,7 @@ fn macro_section() {
 
 // ============== SECTION: Attributes ==============
 fn attributes_section() {
+    println!("== Attributes Section ==");
     //Attributes are also macros attributes example
 
     #[derive(Debug)]
@@ -159,6 +163,7 @@ fn attributes_section() {
 
 // ============== SECTION: Traits ==============
 fn traits_section() {
+    println!("== Traits Section ==");
     trait Golf {
         const BIRDIE: i32 = -1;
     }
@@ -172,6 +177,7 @@ fn traits_section() {
 
 // ============== SECTION: Control Flow ==============
 fn control_flow_section() {
+    println!("== Control Flow Section ==");
     let number = 10;
     if number <= 5 {
         todo!("we will handle this outcome soon.") // another macro
@@ -214,6 +220,120 @@ fn if_let_section() {
     }
 }
 
+// ============== SECTION: Match ==============
+fn match_section() {
+    println!("== Match Section ==");
+
+    // Using match with integers
+    let number = 1;
+
+    // Match is exhaustive, so we need to cover all possible cases
+    match number {
+        1 => println!("The number is one."),
+        2 => println!("The number is two."),
+        3..=20 => println!("The number is between 3 and 20"),
+        _ => println!("The number is neither one nor two."),
+    }
+
+    // Using match with Option
+    let some_option: Option<i32> = Some(10);
+
+    match some_option {
+        Some(value) => println!("The value inside the option is: {}", value),
+        None => println!("The option is None"),
+    }
+
+    // Using match with custom Enum
+    enum Weather {
+        _Sunny,
+        Rainy(String),
+        _Cloudy,
+    }
+
+    let today = Weather::Rainy(String::from("Heavy"));
+
+    match today {
+        Weather::_Sunny => println!("The weather today is sunny."),
+        Weather::Rainy(description) => println!("The weather today is rainy with: {}", description),
+        Weather::_Cloudy => println!("The weather today is cloudy."),
+    }
+}
+
+// ============== SECTION: Loops ==============
+fn loops_section() {
+    println!("== Loops Section ==");
+
+    // Loop - Infinite loop, can be terminated using a condition within the loop
+    let mut count = 0;
+    loop {
+        println!("This is an infinite loop iteration {}", count);
+        count += 1;
+        if count == 3 {
+            break;
+        }
+    }
+
+    // Loop Labels - Named loops that allow breaking or continuing outer loops
+    'outer: loop {
+        println!("Outer loop");
+        loop {
+            println!("Inner loop");
+            break 'outer; // This will break the outer loop
+        }
+    }
+
+    // While Loop - Continues as long as the condition is true
+    let mut number = 5;
+    while number != 0 {
+        println!("The number is {}", number);
+        number -= 1;
+    }
+
+    // While Let - Continues as long as the pattern in the condition matches
+    let mut optional_number = Some(3);
+    while let Some(value) = optional_number {
+        println!("The value inside the option is: {}", value);
+        optional_number = if value != 0 { Some(value - 1) } else { None };
+    }
+
+    // For/In Loop - Iterates over elements of a collection
+    for i in 1..4 {
+        println!("This is a for/in loop iteration {}", i);
+    }
+
+    // For/In Loop with an iterator, like array's iter() method
+    let array = [10, 20, 30];
+    for element in array.iter() {
+        println!("The value in the array is: {}", element);
+    }
+}
+
+// ============== SECTION: Closures ==============
+fn closures_section() {
+    println!("== Closures Section ==");
+    // Closures can capture values from the scope in which they're defined.
+    // When we capture values from the environment, they are taken by reference.
+    //If we want to take ownership of the values, we can use the move keyword.
+
+    // A closure that takes no arguments and returns an i32.
+    // The return type is inferred.
+    let simple_closure = || 10;
+    println!("Simple closure result: {}", simple_closure());
+
+    // A closure that takes one argument and adds 1 to it.
+    let add_one = |x: i32| x + 1;
+    println!("Add one closure result: {}", add_one(5));
+
+    // A closure that captures its environment, such as accessing a variable outside of its scope.
+    let num = 5;
+    let add_num = |x: i32| x + num;
+    println!("Add num closure result: {}", add_num(10));
+
+    // A closure with a move keyword, meaning it takes ownership of the values it uses from the environment.
+    let subtract_num = move |x: i32| x - num;
+    println!("Subtract num closure result: {}", subtract_num(10));
+}
+
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -224,4 +344,8 @@ fn main() {
     control_flow_section();
     attributes_section();
     if_let_section();
+    match_section();
+    loops_section();
+    closures_section();
 }
+
