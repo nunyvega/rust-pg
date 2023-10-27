@@ -393,7 +393,8 @@ fn rust_primitives_section() {
     println!("Str slice: {}, String object: {}", str_slice, string_obj);
 
     // Arrays and Slices
-    // Arrays have a fixed length at compile time
+    // Arrays have a fixed length at compile time.
+    // If you want a collection that can grow or shrink in size, use a vector instead.
     // Slices are references to a sequence of elements in an array
     let array: [i32; 3] = [1, 2, 3];
     let slice: &[i32] = &array[1..3];
@@ -432,7 +433,6 @@ fn rust_primitives_section() {
     println!("HashMap: {:?}", hash_map);
 }
 
-
 // ============== Main Function Calling Each Section ==============
 fn main() {
     basic_printing_and_variables();
@@ -447,5 +447,5 @@ fn main() {
     loops_section();
     closures_section();
     iterators_section();
-	rust_primitives_section();
+    rust_primitives_section();
 }
